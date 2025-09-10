@@ -166,7 +166,8 @@ export const tasksAPI = {
   deleteTask: (id: string) => apiRequest(`/tasks/${id}`, { method: "DELETE" }),
 }
 
-// lib/api.ts (add this below your existing apiRequest function)
+// lib/api.ts (add this below your existing apiRequest function) checking
+// Notifications API functions
 
 export const notificationsAPI = {
   getNotifications: (filters?: { read?: boolean; page?: number; limit?: number }) => {
