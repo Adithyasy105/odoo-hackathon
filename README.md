@@ -331,13 +331,3 @@ Prisma
 
 Lucide
 
-Built with ❤️ by the SynergySphere Team
-
-yaml
-Copy code
-
----
-
-If you want, I can also make a **more compact Hackathon-friendly version** of this README that **highlights your contributions** and looks very professional for your GitHub profile.  
-
-Do you want me to do that?
