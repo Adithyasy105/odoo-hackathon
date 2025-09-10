@@ -1,190 +1,212 @@
-SynergySphere - Team Collaboration Platform
-A modern, full-stack team collaboration platform built with Next.js, TypeScript, Prisma, and PostgreSQL. SynergySphere allows teams to manage projects, organize tasks, and collaborate seamlessly with a beautiful, responsive interface.
+# SynergySphere - Team Collaboration Platform
 
-✨ Features
-Core Functionality
-Project Management - Create, organize, and track team projects from a single dashboard.
+A modern, full-stack team collaboration platform built with **Next.js, TypeScript, Prisma, and PostgreSQL**. Manage projects, tasks, and team members with a beautiful, responsive interface.
 
-Task Management - Intuitive Kanban-style task boards with drag-and-drop functionality to visualize workflow.
+---
 
-Team Collaboration - Invite team members, assign custom roles (Owner, Admin, Member), and manage permissions.
+## Features
 
-Real-time Notifications - Stay updated with instant notifications for task assignments, project invitations, and key activities.
+### Core Functionality
+- **Project Management**: Create, organize, and track team projects
+- **Task Management**: Kanban-style task boards with drag-and-drop functionality
+- **Team Collaboration**: Invite members, assign roles, and manage permissions
+- **Real-time Notifications**: Stay updated with project and task activities
+- **User Authentication**: Secure JWT-based authentication system
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
 
-User Authentication - A secure JWT-based authentication system for user management.
+### UI/UX Features
+- **Modern Design**: Clean, intuitive interface with dark/light theme support
+- **Responsive Layout**: Fully responsive design that adapts to any screen size
+- **Interactive Components**: Smooth animations and hover effects
+- **Accessibility**: Built with accessibility best practices
+- **Custom Styling**: Tailwind CSS with custom components
 
-Responsive Design - A single application that works seamlessly on desktop, tablet, and mobile devices.
+---
 
-UI/UX Features
-Modern Design - A clean, intuitive interface with beautiful light and dark theme support.
+## Tech Stack
 
-Interactive Components - Smooth animations and elegant hover effects using framer-motion.
+**Frontend**
+- Next.js 14 (React framework with App Router)
+- TypeScript (Type-safe development)
+- Tailwind CSS (Utility-first CSS framework)
+- Shadcn/ui (Accessible component library)
+- Lucide React (Icon library)
+- Date-fns (Date manipulation utilities)
 
-Accessibility - Built with accessibility best practices to ensure a great experience for all users.
+**Backend**
+- Node.js (JavaScript runtime)
+- Express.js (Web framework)
+- Prisma (Modern ORM for database management)
+- PostgreSQL (Relational database)
+- JWT (JSON Web Tokens for authentication)
+- Zod (Schema validation)
 
-Custom Styling - A highly customized Tailwind CSS configuration for a unique and cohesive design language.
+**Development Tools**
+- ESLint (Code linting)
+- Prettier (Code formatting)
+- Jest (Testing framework)
+- Prisma Studio (Database management UI)
 
-🏗 Tech Stack
-Frontend
-Next.js 14 - React framework with the App Router for modern web development.
+---
 
-TypeScript - Ensures type-safe, maintainable, and scalable code.
+## Quick Start
 
-Tailwind CSS - A utility-first CSS framework for rapid and consistent styling.
+### Prerequisites
+- Node.js 18+
+- PostgreSQL 14+
+- npm or yarn
 
-Shadcn/ui - A collection of beautiful, accessible, and reusable UI components.
+### Installation
 
-Framer Motion - Library for smooth animations and interactive transitions.
-
-Lucide React - A comprehensive icon library for clear visual communication.
-
-Date-fns - A minimalist library for powerful date manipulation.
-
-Backend
-Node.js - The backend runtime environment.
-
-Express.js - A fast, unopinionated, minimalist web framework.
-
-Prisma - A modern and powerful ORM for database management.
-
-PostgreSQL - A robust and reliable relational database.
-
-JWT - JSON Web Tokens for secure and stateless authentication.
-
-Zod - A powerful schema validation library.
-
-Development Tools
-ESLint - For enforcing code quality and consistency.
-
-Prettier - For automatic code formatting.
-
-Jest - For robust unit and integration testing.
-
-Prisma Studio - A user-friendly GUI for interacting with the database.
-
-🚀 Quick Start
-Prerequisites
-Before you begin, ensure you have the following installed on your machine:
-
-Node.js (version 18 or higher)
-
-PostgreSQL (version 14 or higher)
-
-npm or yarn
-
-Installation
 Clone the repository:
-
-Bash
-
-git clone https://github.com/your-username/synergysphere.git
+```bash
+git clone <repository-url>
 cd synergysphere
 Install dependencies:
 
-Bash
-
-# Install frontend dependencies
+bash
+Copy code
+# Frontend
+cd synergysphere
 npm install
 
-# Install backend dependencies
-cd backend-do
+# Backend
+cd ../backend-do
 npm install
 Set up the database:
 
-Bash
-
-# Create the PostgreSQL database
+bash
+Copy code
+# Create PostgreSQL database
 createdb synergysphere
 
-# Navigate back to the backend directory and set up environment variables
+# Set up environment variables
 cp .env.example .env
-Edit the .env file in the backend-do directory with your database credentials and a secret key:
+# Edit .env with your database credentials
+Run database migrations:
 
+bash
+Copy code
+cd backend-do
+npx prisma migrate dev
+npx prisma generate
+Start the development servers:
+
+bash
+Copy code
+# Terminal 1 - Backend
+cd backend-do
+npm run dev
+
+# Terminal 2 - Frontend
+cd synergysphere
+npm run dev
+Open your browser:
+
+Frontend: http://localhost:3001
+
+Backend API: http://localhost:3000
+
+Prisma Studio: http://localhost:5555
+
+Project Structure
+vbnet
+Copy code
+synergysphere/
+├── app/
+│   ├── dashboard/
+│   ├── auth/
+│   └── globals.css
+├── components/
+│   ├── ui/
+│   ├── auth-provider.tsx
+│   ├── dashboard-layout.tsx
+│   └── ...
+├── lib/
+│   ├── api.ts
+│   └── utils.ts
+└── public/
+
+backend-do/
+├── src/
+│   ├── auth/
+│   ├── projects/
+│   ├── tasks/
+│   ├── notifications/
+│   ├── middleware/
+│   └── lib/
+├── prisma/
+└── tests/
+Configuration
+Frontend (.env.local)
+
+bash
+Copy code
+NEXT_PUBLIC_API_URL=http://localhost:3000/api/v1
+Backend (.env)
+
+ini
+Copy code
 DATABASE_URL="postgresql://username:password@localhost:5432/synergysphere"
 JWT_SECRET="your-super-secret-jwt-key"
 JWT_REFRESH_SECRET="your-super-secret-refresh-key"
 NODE_ENV="development"
 PORT=3000
-Run database migrations:
-
-Bash
-
-# In the backend-do directory
-npx prisma migrate dev
-npx prisma generate
-Start the development servers:
-Open two separate terminal windows.
-
-Terminal 1 (Backend):
-
-Bash
-
-cd backend-do
-npm run dev
-Terminal 2 (Frontend):
-
-Bash
-
-cd synergysphere
-npm run dev
-Open your browser
-The application will now be running on your local machine.
-
-Frontend: http://localhost:3001
-
-Backend API: http://localhost:3000/api/v1
-
-Prisma Studio: http://localhost:5555
-
-📂 Project Structure
-synergysphere/
-├── app/                    # Next.js App Router pages
-│   ├── dashboard/          # Dashboard & project management pages
-│   ├── auth/               # User authentication pages (login, register)
-│   └── globals.css         # Global styles & Tailwind directives
-├── components/           # Reusable UI components
-│   ├── ui/               # Shadcn/ui base components
-│   ├── auth-provider.tsx # Authentication context provider
-│   ├── dashboard-layout.tsx# Main application layout
-│   └── ...                 # Feature-specific components
-├── lib/                  # Utility functions
-│   ├── api.ts            # Frontend API client
-│   └── utils.ts          # General helper functions
-├── public/               # Static assets (images, fonts, etc.)
-└── ...
-
-backend-do/
-├── src/
-│   ├── auth/             # Authentication routes, controllers, and services
-│   ├── projects/         # Project management logic
-│   ├── tasks/            # Task management logic
-│   ├── notifications/    # Notification system logic
-│   ├── middleware/       # Express middleware (e.g., authentication)
-│   └── lib/              # Database connection & other utilities
-├── prisma/               # Prisma database schema & migrations
-├── tests/                # Jest test files
-└── ...
-📝 Usage Guide
+Usage Guide
 Getting Started
-Register/Login: Create a new account or sign in with existing credentials.
+Register/Login
 
-Create Project: Start by creating your first project and giving it a name and description.
+Create Project
 
-Invite Team Members: Add your team members to the project via their email addresses.
+Invite Team Members
 
-Create Tasks: Break down your work into manageable tasks and assign them to team members.
+Create Tasks
 
-Track Progress: Use the Kanban board to track the status of tasks as they move from "To Do" to "In Progress" and "Done."
+Track Progress
 
-🧪 Testing
-Running Tests
-To run the test suite for the backend:
+Key Features
+Project Management
 
-Bash
+Manage multiple projects
 
+Set project descriptions and settings
+
+Invite team members with different roles
+
+Track project progress and statistics
+
+Task Management
+
+Create tasks with titles, descriptions, and due dates
+
+Assign tasks to team members
+
+Organize tasks in Kanban columns (To Do, In Progress, Done)
+
+Filter and search tasks
+
+Team Collaboration
+
+Invite users via email
+
+Assign roles (Owner, Admin, Member)
+
+Manage permissions and access levels
+
+Real-time updates and notifications
+
+Testing
+bash
+Copy code
+# Backend tests
 cd backend-do
 npm test
-Test Coverage
+
+# Frontend tests
+cd synergysphere
+npm test
+Covers:
+
 API endpoint testing
 
 Authentication flow testing
@@ -193,40 +215,129 @@ Database operations testing
 
 Component unit testing
 
-🤝 Contributing
-We welcome contributions! Please follow these steps to contribute to the project:
+Deployment
+bash
+Copy code
+# Frontend
+cd synergysphere
+npm run build
+npm start
 
-Fork the repository.
+# Backend
+cd backend-do
+npm run build
+npm start
+Configure PostgreSQL, environment variables, reverse proxy (nginx), SSL certificates.
 
-Create a new feature branch (git checkout -b feature/your-feature-name).
+Contributing
+Fork the repository
 
-Commit your changes (git commit -m 'feat: Add your new feature').
+Create a feature branch:
 
-Push to the branch (git push origin feature/your-feature-name).
+bash
+Copy code
+git checkout -b feature/amazing-feature
+Commit your changes:
 
-Open a Pull Request with a clear description of your changes.
+bash
+Copy code
+git commit -m 'Add amazing feature'
+Push to your branch:
 
-Development Guidelines
-Follow TypeScript best practices.
+bash
+Copy code
+git push origin feature/amazing-feature
+Open a Pull Request
 
-Write meaningful and descriptive commit messages.
+Guidelines
 
-Ensure all new features include corresponding tests.
+Follow TypeScript best practices
 
-Keep documentation up to date with any changes.
+Write meaningful commit messages
 
-📄 License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+Add tests for new features
 
-🙏 Acknowledgments
-Next.js for the amazing React framework.
+Update documentation as needed
 
-Tailwind CSS for the utility-first CSS approach.
+API Documentation
+Authentication Endpoints
 
-Shadcn/ui for the beautiful and accessible component library.
+POST /api/v1/auth/register - User registration
 
-Prisma for the modern and intuitive ORM.
+POST /api/v1/auth/login - User login
 
-Lucide for the fantastic icon library.
+GET /api/v1/auth/profile - Get user profile
 
-Built with ❤️ by the SynergySphere Team.
+Project Endpoints
+
+GET /api/v1/projects - List projects
+
+POST /api/v1/projects - Create project
+
+GET /api/v1/projects/:id - Get project details
+
+PUT /api/v1/projects/:id - Update project
+
+DELETE /api/v1/projects/:id - Delete project
+
+Task Endpoints
+
+GET /api/v1/tasks - List tasks
+
+POST /api/v1/tasks - Create task
+
+GET /api/v1/tasks/:id - Get task details
+
+PUT /api/v1/tasks/:id - Update task
+
+DELETE /api/v1/tasks/:id - Delete task
+
+Troubleshooting
+Database Connection Issues
+
+Verify PostgreSQL is running
+
+Check DATABASE_URL in .env
+
+Ensure database exists
+
+Authentication Issues
+
+Check JWT_SECRET is set
+
+Verify token expiration
+
+Clear browser storage
+
+Build Issues
+
+Clear node_modules and reinstall
+
+Check Node.js version compatibility
+
+Verify environment variables
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Acknowledgments
+Next.js
+
+Tailwind CSS
+
+Shadcn/ui
+
+Prisma
+
+Lucide
+
+Built with ❤️ by the SynergySphere Team
+
+yaml
+Copy code
+
+---
+
+If you want, I can also make a **more compact Hackathon-friendly version** of this README that **highlights your contributions** and looks very professional for your GitHub profile.  
+
+Do you want me to do that?
